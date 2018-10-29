@@ -132,7 +132,7 @@ protected
 
           burndown.next_file(data["on"], framework, file)
           debug "#{data["on"]} Assigning #{file}"
-          channel.write "command" => "process_file", "filename" => file unless file.empty?
+          channel.write "command" => "process_file", "filename" => file if file and !file.empty?
 
         elsif files_by_framework.empty?
           debug "#{data["on"]} Finished with this worker"
